@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
 import navConfig from '../nav.config.json';
 
 let lang = "zh-CN";
@@ -35,7 +35,7 @@ const registerRoute = (navConfig) => {
 let routes = registerRoute(navConfig);
 
 const router = createRouter({
-	history: createWebHistory(process.env.BASE_URL),
+	history: createWebHashHistory(process.env.BASE_URL),
 	routes
 })
 export default router
