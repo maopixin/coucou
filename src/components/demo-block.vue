@@ -7,7 +7,7 @@
 			<div span="14">
 				<div class="docs-demo docs-demo--expand">
 					<div class="highlight-wrapper">
-						<slot></slot>
+						<slot name="hljs"></slot>
 					</div>
 				</div>
 			</div>

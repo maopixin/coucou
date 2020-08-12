@@ -23,7 +23,7 @@ exports.strip = function (str, tags) {
 		$(tags[len]).remove();
 	}
 
-	return $.html();
+	return $('body').html();
 };
 
 exports.fetch = function (str, tag) {

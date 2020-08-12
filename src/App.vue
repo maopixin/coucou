@@ -1,5 +1,6 @@
 <template>
 	<main-header/>
+	<test/>
 	<div class="container">
 		<navs/>
 		<div class="demo-doc-container">
@@ -19,6 +20,11 @@ export default {
 		mainHeader,
 		navs,
 		mainFooter,
+		test: {
+			template: `
+				<div>123213</div>
+			`,
+		}
 	}
 }
 </script>

@@ -1,16 +1,16 @@
 <template>
 	<div class="navs">
 		<ul v-for="(item, index) in navConfig" :key="index">
-			<li class="nav-item">{{ item.name }}</li>
+			<li class="nav-item" @click="to(item)">{{ item.name }}</li>
 			<ul v-if="item.children">
-				<li class="c-item" v-for="(e, i) in item.children" :key="i">
+				<li class="c-item" v-for="(e, i) in item.children" :key="i" @click="to(e)">
 					{{ e.name }}
 				</li>
 			</ul>
 			<div v-if="item.groups">
 				<ul v-for="(e, i) in item.groups" :key="i">
 					<li class="group">{{ e.groupName }}</li>
-					<li class="c-item" v-for="(ee, ii) in e.list" :key="ii">
+					<li class="c-item" v-for="(ee, ii) in e.list" :key="ii"  @click="to(ee)">
 						{{ ee.title }}
 					</li>
 				</ul>
@@ -21,10 +21,22 @@
 
 <script>
 import navConfig from '../nav.config.json';
+import { useRouter } from 'vue-router';
+
 export default {
 	setup() {
+		let router = useRouter();
+		
+		function to(info) {
+			if(info.path) {
+				router.push({
+					path: info.path
+				})
+			}
+		}
 		return {
-			navConfig: navConfig['zh-CN']
+			navConfig: navConfig['zh-CN'],
+			to
 		}
 	}
 }

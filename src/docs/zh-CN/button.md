@@ -30,11 +30,16 @@
   <c-button color="info" round>信息按钮</c-button>
   <c-button color="danger" round>危险按钮</c-button>
 </div>
+<script>
+  export default {
+    
+  };
+</script>
 <style lang="less">
 .button-wrapper {
-  text-align: center;
-  .c-button{
-    margin: 8px;
+  padding-bottom: 10px;
+  &:last-child {
+	padding-bottom: 0;
   }
 }
 </style>

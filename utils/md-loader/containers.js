@@ -1,5 +1,6 @@
 const mdContainer = require('markdown-it-container');
 const striptags = require('./strip-tags');
+var cheerio = require('cheerio');
 
 function convert(str) {
 	str = str.replace(/(&#x)(\w{4});/gi, function ($0) {
@@ -26,11 +27,15 @@ module.exports = md => {
 				var html = convert(striptags.strip(content, ['script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1');
 				var style = striptags.fetch(content, 'style');
 				
+				var styleInner = style ? `<div class="style">${ style }</div>` : '';
+
 				return `<demo-block>
 					<template v-slot:source>${html}</template>
+					${ styleInner }
+					<template v-slot:hljs>
 				`;
 			}
-			return '</demo-block>';
+			return '</template></demo-block>';
 		}
 	});
 
