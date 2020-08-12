@@ -1,6 +1,5 @@
 <template>
 	<main-header/>
-	<test/>
 	<div class="container">
 		<navs/>
 		<div class="demo-doc-container">
